@@ -6,9 +6,16 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
+import android.widget.TextView;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 
 
 public class MainActivity extends Activity {
+
+    private boolean isInEditMode = true;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -19,7 +26,29 @@ public class MainActivity extends Activity {
         saveButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                saveButton.setText("Clicked");
+                EditText titleEditText = (EditText)findViewById(R.id.titleEditText);
+                EditText noteEditText = (EditText)findViewById(R.id.noteEditText);
+
+                if(isInEditMode)
+                {
+                    isInEditMode = false;
+                    saveButton.setText("Edit");
+                    titleEditText.setEnabled(false);
+                    noteEditText.setEnabled(false);
+
+                    TextView dateTextView = (TextView)findViewById(R.id.dateTextView);
+                    DateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss");
+                    String date= dateFormat.format(Calendar.getInstance().getTime());
+                    dateTextView.setText(date);
+                }
+                else
+                {
+                    isInEditMode = true;
+                    saveButton.setText("Save");
+                    titleEditText.setEnabled(true);
+                    noteEditText.setEnabled(true);
+                }
+
             }
         });
     }

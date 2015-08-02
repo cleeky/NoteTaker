@@ -74,7 +74,7 @@
             android:layout_height="wrap_content"
             android:inputType="textMultiLine"
             android:ems="10"
-            android:id="@+id/NoteEditText" />
+            android:id="@+id/noteEditText" />
 
     </LinearLayout>
 
