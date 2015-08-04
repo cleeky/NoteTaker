@@ -32,7 +32,7 @@ public class MainActivity extends Activity {
                 if(isInEditMode)
                 {
                     isInEditMode = false;
-                    saveButton.setText("Edit");
+                    saveButton.setText(R.string.editButton);
                     titleEditText.setEnabled(false);
                     noteEditText.setEnabled(false);
 
@@ -44,7 +44,7 @@ public class MainActivity extends Activity {
                 else
                 {
                     isInEditMode = true;
-                    saveButton.setText("Save");
+                    saveButton.setText(R.string.saveButton);
                     titleEditText.setEnabled(true);
                     noteEditText.setEnabled(true);
                 }
